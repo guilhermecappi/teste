@@ -1,0 +1,24 @@
+<div class="menu-utilities {{storedTheme}}">
+
+    <div class="user-details">
+        <app-user-details></app-user-details>
+    </div>  
+
+    <div class="user-icon" (click)="openOptions()">
+        <fa-icon [icon]="configIcon" [fixedWidth]="true"></fa-icon>
+    </div>
+
+    <div class="container {{storedTheme}}" [class.display-container]="optOpened">
+        <li>
+            <span><fa-icon [icon]="moonIcon" pull="left" transform="rotate-340" [fixedWidth]="true"></fa-icon>Tema Escuro</span>
+            <div class="switch-theme" (click)="setTheme()">
+                <div class="switch-theme-slider"></div>
+                <fa-icon [icon]="checkIcon" [fixedWidth]="true"></fa-icon>
+            </div>
+        </li>
+    </div>
+    
+</div>
+
+
+

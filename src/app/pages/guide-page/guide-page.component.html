@@ -1,0 +1,24 @@
+<div class="page-wrapper {{storedTheme}}">
+
+        <div class="guide-options">
+
+            <p>Guia de Programação</p>
+        
+            <div class="filters">
+                <div class="input-box">
+                    <input type="text" id="search" required>
+                    <label for="search">
+                        <fa-icon [icon]="searchIcon"></fa-icon>
+                        <span>Buscar</span>
+                    </label>
+                </div>
+                <div class="filter">
+                    <span>Filtro</span>
+                    <fa-icon [icon]="filterIcon"></fa-icon>
+                </div>
+            </div>
+        
+        </div>
+
+        <app-guide></app-guide>
+</div>

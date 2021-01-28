@@ -1,0 +1,127 @@
+.page-wrapper{
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    transition: background-color none;
+}
+
+.header{
+    width: 30rem;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    animation: show-container .5s ease;
+
+    span{
+        height: 100%;
+
+        font-size: 1.6rem;
+
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: .1s;
+
+        user-select: none;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        &.active{
+            font-weight: 600;
+            border-bottom: 4px solid var(--main-blue);
+        }
+    }
+}
+
+.container, .forgot-container{
+    width: 40rem;
+    min-height: 40rem;
+
+    border-radius: 1rem;
+
+    background: var(--sub-color-dark-theme);
+    box-shadow: 0 2px 12px rgba($color: #000000, $alpha: .2);
+
+    animation: show-container .65s ease;
+}
+
+//dark-theme
+
+.page-wrapper.dark-theme{
+    background:var(--main-color-dark-theme);
+
+    .container{    
+        background: var(--sub-color-dark-theme);
+    }
+
+    .header{
+        span{
+            color: var(--main-font-dark-theme);
+
+            &.active{
+                color: white;
+            }
+        }
+    }
+}
+
+//light-theme
+
+.page-wrapper.light-theme{
+    background:var(--main-color-light-theme);
+
+    .container{    
+        background: var(--sub-color-light-theme);
+    }
+
+    .header{
+        span{
+            color: var(--main-font-light-theme);
+
+            &.active{
+                color: black;
+            }
+        }
+    }
+}
+
+@keyframes show-container{
+    0%{
+        transform: translateX(-15rem);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: initial;
+    }
+}
+
+
+@media (max-width: 768px){
+    .page-wrapper{
+        padding-top: 6rem;
+        padding-bottom: 8vh;
+    }
+
+    .container{
+        width: min(40rem, 95%)
+    }
+    
+    .header{
+        width: min(30rem, 65%)
+    }
+}

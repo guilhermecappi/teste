@@ -1,0 +1,27 @@
+<div class="menu-wrapper {{storedTheme}}">
+    <div [class.menu-opened]="menuOpened" class="menu-hamburger" (click)="openMenu()">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-bottom"></span>
+    </div>
+
+    <div class="menu-content" [class.menu-opened]="menuOpened">
+        <div class="user-details mobile-only">
+            <app-user-details></app-user-details>
+        </div>
+
+        <!-- <hr class="divider mobile-only"> -->
+
+        <div class="menu-options-box">
+            <span class="menu-options">Programação</span>
+            <span class="menu-options">Destaques</span>
+            <span class="menu-options">Explore</span>
+        </div>
+
+        <hr class="divider mobile-only">
+
+        <div class="user-options">
+            <app-user-options></app-user-options>
+        </div>
+    </div>
+   
+</div>

@@ -1,0 +1,49 @@
+
+<main class="guide-wrapper {{storedTheme}}">
+    <div class="guide-header">
+                
+        <div class="date-dropdown">
+            {{weekdays[weekday]}}, {{day}}
+            <fa-icon [icon]="arrowDown"></fa-icon>
+        </div>
+
+        <div class="guide-hours-container" #guidehours style="right:{{watchedPosition*210}}px;">
+            <div class="marker" style="width:{{markerWidth*7}}px;"></div>
+            <div class="marker entire-day-counter" style="width:{{entireDay}}px;"></div>
+            <div class="guide-hours" *ngFor="let hour of hours">
+                {{hour}}
+            </div>
+        </div>
+
+        <div class="nav-arrows">
+            <span (click)="prev()" [class.display-n]="watchedPosition == 0">
+                <fa-icon [icon]="arrowLeft"></fa-icon>
+            </span>
+            <span (click)="next()" [class.display-n]="watchedPosition == 42">
+                <fa-icon [icon]="arrowRight"></fa-icon>
+            </span>
+        </div>
+
+    </div>
+
+    <section class="guide">
+
+        <div class="channel-list">
+            <div class="channel-details" *ngFor="let channel of channels">
+                <span><img src="{{channel.image}}" alt="{{channel.name}}"></span>
+            </div> 
+        </div>
+
+        <div class="scroll" #scroll style="right:{{watchedPosition*210}}px;">
+            <div class="programs-row" *ngFor="let channel of channels">
+                <div class="program-details" [routerLink]="['watch', program.id]" *ngFor="let program of channel.programs" style="width: {{program.duration * 7}}px">
+                    {{program.title}}
+                </div>
+            </div>         
+        </div>   
+            
+    </section> 
+
+    <span class="current-hour" *ngIf="watchedPosition != setWatchedPosition()" (click)="goBack()">Voltar</span>
+
+</main>

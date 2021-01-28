@@ -1,0 +1,13 @@
+<div class="page-wrapper {{storedTheme}}" >
+
+    <div class="header">
+        <span (click)="switchTab()" [class.active]="containerState == 'login'">Entrar</span>
+        <span (click)="switchTab()" [class.active]="containerState == 'signup'">Cadastrar</span>
+    </div>
+
+    <div class="container" [ngSwitch]="containerState">
+        <app-login *ngSwitchCase="'login'"></app-login>
+        <app-signup *ngSwitchCase="'signup'"></app-signup>
+    </div>
+
+</div>

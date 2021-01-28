@@ -1,0 +1,23 @@
+<div class="page-wrapper {{storedTheme}}">  
+
+    <div class="forgot-container container {{storedTheme}}">
+        <header>
+            <div class="arrow-box" (click)="goBack()">
+                <fa-icon [icon]="arrowIcon"></fa-icon>
+            </div>
+            <h1>Recuperar senha</h1>
+        </header>
+
+        <form #forgot="ngForm">
+
+            <div class="input-box">
+                <input type="text" id="email" #email name="email" autocomplete="off" required email [(ngModel)]="user.email">
+                <label for="email">Email</label>
+            </div>
+
+            <button class="form-btn" [disabled]="!forgot.valid">Enviar</button>
+
+        </form>
+    </div>
+
+</div>

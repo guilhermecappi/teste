@@ -1,0 +1,426 @@
+.guide-wrapper{
+    position: relative;
+
+    width: 142.2rem;
+
+    margin: 0 auto;
+}
+
+.current-hour{
+    position: absolute;
+    z-index: 10;
+    bottom: 3.5rem;
+    right: 2rem;
+
+    width: 8rem;
+    height: 4rem;
+
+    font-size: 1.6rem;
+
+    border-radius: .2rem;
+
+    box-shadow: 0 2px 12px rgba($color: #000, $alpha: .3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .1s;
+
+    &:hover{
+        border: 1px solid var(--main-blue);
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.guide-header{
+    position: relative;
+    width: 100%;
+    height: 5rem;
+
+    display: flex;
+    flex-direction: row;
+
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    margin-bottom: .2rem;
+
+    overflow-x: hidden;
+
+    .date-dropdown{
+        position: relative;
+        z-index: 5;
+
+        min-width: 16.2rem;
+        height: 100%;
+
+        font-size: 1.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 1.5rem;
+
+        transition: .1s;
+    }
+
+    .guide-hours-container{
+        position: relative;
+        width: max-content;
+        height: calc(100% - .7rem);
+
+        display: flex;
+
+        transition: .3s;
+
+        .marker{
+            position: absolute;
+            bottom: -.7rem;
+            left: 0;
+
+            height: .5rem;
+
+            background: var(--main-blue);
+            border-left: .2rem solid;
+
+            transition: width .3s;
+        }
+
+        .entire-day-counter{
+            opacity: .2;
+        }
+
+        .guide-hours{
+            width: 21rem;
+            height: 100%;
+
+            border-left: 2px solid;
+            background: var(--sub-color-dark-theme);
+
+            font-size: 1.6rem;
+
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+        }
+    }
+    .nav-arrows{
+        position: absolute;
+        right: 0;
+
+        width: 8rem;
+        height: calc(100% - .7rem);
+
+        font-size: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        span{
+            width: 3rem;
+            height: 3rem;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: .1s;
+
+            &:hover{
+                cursor: pointer;
+                color: var(--main-blue);
+            }
+        }   
+    }  
+}
+
+.guide{
+    position: relative;
+    width: 100%;
+    height: 49rem;
+
+    display: flex;
+    
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+.channel-list{
+    position: relative;
+    z-index: 5;
+
+    min-width: 16.2rem;
+    height: max-content;
+
+    box-shadow: 2px 0 8px rgba($color: #000, $alpha: .2);
+
+    .channel-details{
+        width: 100%;
+        height: 8rem;
+
+        font-size: 1.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        user-select: none;
+
+        &:hover{
+            span{
+                transform: scale(1.15);
+            }    
+        }
+
+        span{
+            width: 5rem;
+            height: 5rem;
+
+            overflow: hidden;
+
+            box-shadow: 0 2px 6px rgba($color: #000, $alpha: .2);
+            border-radius: 50%;
+
+            transition: .3s;
+
+            img{
+                width: 100%;
+                height: 100%;
+
+                pointer-events: none;
+            }
+        }
+
+        &:not(:first-child){
+            margin-top: .2rem;
+        }
+    }
+}
+
+.scroll{
+    position: relative;
+
+    height: 100%; 
+     
+    overflow-x: visible;
+
+    transition: .4s;
+}
+
+.programs-row{
+    width: max-content;
+    height: 8rem;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 1.6rem;
+
+    &:not(:first-child){
+        margin-top: .2rem;
+    }
+    
+    .program-details{
+        height: 100%;
+
+        border-left: 2px solid;
+
+        padding: 1rem 1.5rem;
+
+        transition: .2s;
+    }
+}
+
+//dark theme
+.guide-wrapper.dark-theme{
+
+    .current-hour{
+        color: var(--main-font-dark-theme);
+        background: var(--sub-color-dark-theme);
+    }
+
+    .guide-header{
+        .date-dropdown{
+            color: var(--main-font-dark-theme);
+            background: var(--sub-color-dark-theme);
+            &:hover{
+                color: var(--main-blue);
+                cursor: pointer;
+            }
+        }
+
+        .guide-hours-container{
+            .guide-hours{
+                border-left-color: var(--main-color-dark-theme);
+                background: var(--sub-color-dark-theme);
+                color: var(--main-font-dark-theme);
+            }
+
+            .marker{
+                border-left-color: var(--main-color-dark-theme);
+            }
+
+        }
+
+        .nav-arrows{   
+            background: var(--sub-color-dark-theme);
+            color: var(--main-font-dark-theme);
+            & .display-n{
+                color: #444;
+                &:hover{
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    .channel-list{
+        background: var(--main-color-dark-theme);
+        .channel-details{
+            background: var(--sub-color-dark-theme);
+            color: var(--main-font-dark-theme);
+            &:hover{
+                background: linear-gradient(to top left, var(--sub-color-dark-theme)30%, rgba($color: #4581e2, $alpha: .3));
+    
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .programs-row{
+        color: var(--main-font-dark-theme);
+        .program-details{
+            background: var(--third-color-dark-theme);
+            border-left-color: var(--main-color-dark-theme);
+
+            &:hover{
+                background: var(--third-color-dark-theme-hover);
+    
+                color: white;
+                border-left: 5px solid var(--main-blue);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+//light theme
+.guide-wrapper.light-theme{
+
+    .current-hour{
+        color: var(--main-font-light-theme);
+        background: var(--sub-color-light-theme);
+    }
+
+    .guide-header{
+        .date-dropdown{
+            color: var(--main-font-light-theme);
+            background: var(--sub-color-light-theme);
+            &:hover{
+                color: var(--main-blue);
+                cursor: pointer;
+            }
+        }
+        .guide-hours-container{
+            .guide-hours{
+                border-left-color: var(--main-color-light-theme);
+                background: var(--sub-color-light-theme);
+                color: var(--main-font-light-theme);
+            }
+            .marker{
+                border-left-color: var(--main-color-light-theme);
+            }
+        }
+        .nav-arrows{   
+            background: var(--sub-color-light-theme);
+            color: var(--main-font-light-theme);
+            & .display-n{
+                color: #aaa;
+                &:hover{
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    .channel-list{
+        background: var(--main-color-light-theme);
+        .channel-details{
+
+            background: var(--sub-color-light-theme);
+            color: var(--main-font-light-theme);
+
+            &:hover{
+                background: linear-gradient(to top left, var(--sub-color-light-theme)30%, rgba($color: #4581e2, $alpha: .3));
+    
+                color: black;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .programs-row{
+        color: var(--main-font-light-theme);
+        .program-details{
+            background: var(--third-color-light-theme);
+            border-left-color: var(--main-color-light-theme);
+
+            &:hover{
+                background: var(--third-color-light-theme-hover);
+    
+                color: black;
+                border-left: 5px solid var(--main-blue);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width: 1500px){
+    .guide-wrapper{
+        width: 121.2rem;
+    }
+}
+@media (max-width: 1300px){
+    .guide-wrapper{
+        width: 100.2rem;
+    }
+}
+@media (max-width: 1100px){
+    .guide-wrapper{
+        width: 79.2rem;
+    }
+}
+
+@media (max-width: 820px){
+    .guide-wrapper{
+        width: 95%;
+        padding: 0;
+        
+        .current-hour{
+            position: fixed;
+            bottom: 2rem;
+        }
+
+        .date-dropdown{
+            min-width: 13rem;
+        }
+
+        .channel-list{
+            min-width: 13rem;
+        }
+    } 
+}

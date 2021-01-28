@@ -1,0 +1,25 @@
+<div class="container {{storedTheme}}">
+
+    <div class="header">
+
+        <div class="arrow-box" (click)="goBack()">
+            <fa-icon [icon]="arrowLeft"></fa-icon>
+            <span>Voltar à programação</span>
+        </div>
+        
+        <h1>{{program.title}}
+            <div></div>
+        </h1>
+
+    </div>
+
+    <div class="video-container">
+
+        <iframe [src]="transform(program.url)" width="100%" height="100%" allowfullscreen="true"></iframe>
+
+        <footer class="user-controls">
+            <a class="primary-btn" href="{{program.url}}" target="_blank">Ir para o youtube</a>
+        </footer>
+    </div>
+    
+</div>
