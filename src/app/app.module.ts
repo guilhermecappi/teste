@@ -16,6 +16,7 @@ import { ForgotPwComponent } from './components/forms/forgot-pw/forgot-pw.compon
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginComponent } from './components/forms/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ThemeService } from './services/theme.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule
   ],
-  providers: [ChannelService],
+  providers: [ChannelService, ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,12 +15,15 @@ export class UserOptionsComponent implements OnInit {
   moonIcon = faMoon;
   checkIcon = faCheck;
 
-  constructor(private themeService: ThemeService) { }
+  constructor(private themeService: ThemeService) {
+    if(localStorage.getItem('theme-color') == null){
+      localStorage.setItem('theme-color', 'dark-theme');
+      this.storedTheme = localStorage.getItem('theme-color');
+      themeService.sendTheme(this.storedTheme);
+    }
+   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('theme-color') == null){
-      localStorage.setItem('theme-color', 'dark-theme')
-    }
   }
   
   openOptions(){
@@ -36,6 +39,6 @@ export class UserOptionsComponent implements OnInit {
       localStorage.setItem('theme-color', 'dark-theme');
       this.storedTheme = localStorage.getItem('theme-color');
     }
-    this.themeService.sendTheme(this.storedTheme)
+    this.themeService.sendTheme(this.storedTheme);
   }
 }
